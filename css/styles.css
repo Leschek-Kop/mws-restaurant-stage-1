@@ -180,8 +180,13 @@ nav h1 a {
 
 /* ====================== Breakpoints ====================== */
 @media screen and (min-width: 350px) { 
+  #restaurants-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   #restaurants-list li {
-    width: 296px; 
+    width: 296px;
     margin-left:auto; 
     margin-right:auto;
   }
@@ -193,6 +198,8 @@ nav h1 a {
     margin: 0 10px 10px;
   }
 }
+
+
 
 
 /* ====================== Restaurant Details ====================== */
