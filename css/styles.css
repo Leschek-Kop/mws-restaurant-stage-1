@@ -69,12 +69,13 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
+    padding: 10px 40px 15px;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
     margin: 0;
     width: 100%;
+    border-bottom: 1px solid #d9d9d9;
 }
 
 /* Display list items side by side */
@@ -105,6 +106,8 @@ nav h1 a {
   height: 400px;
   width: 100%;
   background-color: #ccc;
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #fff;
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
@@ -360,7 +363,7 @@ nav h1 a {
     float: right;
   }
   .inside #map{
-    height: 382px;
+    height: 387px;
   }
   #restaurant-img,
   #restaurant-cuisine{
