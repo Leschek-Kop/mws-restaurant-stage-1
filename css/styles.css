@@ -258,6 +258,8 @@ nav h1 a {
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
+  margin-left:auto; 
+  margin-right:auto;
   overflow: hidden;
   padding: calc(10px + 10px + 37px + 30px) 20px 20px;
   position: relative;
@@ -265,7 +267,6 @@ nav h1 a {
   max-width: calc(364px - 20px - 20px);
   border-radius: 30px 5px 30px 5px;
 }
-
 #reviews-list-head {
   position:absolute;
   top: 0;
@@ -320,17 +321,36 @@ nav h1 a {
     display: flex;
     flex-wrap: wrap;
   }
-
   #restaurants-list li {
     width: 296px;
     margin-left:auto; 
     margin-right:auto;
   }
 }
-
 @media screen and (min-width: 400px) { 
   .filter-options select {
     width: 44%;
     margin: 0 10px 10px;
+  }
+  #restaurant-name{
+    text-align: center;
+  }
+}
+@media screen and (min-width: 650px) { 
+  #reviews-list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 1220px) { 
+  #maincontent {
+    width: 1220px;
+    margin-left:auto; 
+    margin-right:auto;
+  }
+  #breadcrumb {
+    width: calc(1220px - 40px - 40px);
+    margin-left:auto; 
+    margin-right:auto;
   }
 }
