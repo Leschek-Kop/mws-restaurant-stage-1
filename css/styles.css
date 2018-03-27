@@ -38,8 +38,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
-  margin-bottom: 50px;
-  padding-bottom: 80px;
 }
 #footer {
   background-color: #444;
@@ -183,30 +181,6 @@ nav h1 a {
   text-transform: uppercase;
 }
 
-/* ====================== Breakpoints ====================== */
-@media screen and (min-width: 350px) { 
-  #restaurants-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  #restaurants-list li {
-    width: 296px;
-    margin-left:auto; 
-    margin-right:auto;
-  }
-}
-
-@media screen and (min-width: 400px) { 
-  .filter-options select {
-    width: 44%;
-    margin: 0 10px 10px;
-  }
-}
-
-
-
-
 /* ====================== Restaurant Details ====================== */
 .inside header {
   position: fixed;
@@ -231,7 +205,8 @@ nav h1 a {
 }
 #restaurant-img {
   border-radius: 5px 30px 0 0;
-	width: 100%;
+  width: 100%;
+  max-width: 364px;
 }
 #restaurant-address {
   font-size: 12pt;
@@ -247,7 +222,11 @@ nav h1 a {
   padding: 10px 0;
   text-transform: uppercase;
   width: 100%;
+  max-width: 364px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 0 0 5px 30px;
+
 }
 #restaurant-container, #reviews-container {
   position: relative;
@@ -283,6 +262,7 @@ nav h1 a {
   padding: calc(10px + 10px + 37px + 30px) 20px 20px;
   position: relative;
   width: calc(100% - 40px);
+  max-width: calc(364px - 20px - 20px);
   border-radius: 30px 5px 30px 5px;
 }
 
@@ -291,6 +271,7 @@ nav h1 a {
   top: 0;
   left: -1px;
   width: calc(100% - 40px);
+  max-width: calc(364px - 20px - 20px);
   background-color: #333;
   padding: 0 20px 0;
   display: inline-block;
@@ -325,4 +306,31 @@ nav h1 a {
 #restaurant-hours td {
   text-align: left;
   color: #666;
+}
+.inside #maincontent {
+  background-color: #f3f3f3;
+  min-height: 100%;
+  margin-bottom: 50px;
+  padding-bottom: 80px;
+}
+
+/* ====================== Breakpoints ====================== */
+@media screen and (min-width: 350px) { 
+  #restaurants-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #restaurants-list li {
+    width: 296px;
+    margin-left:auto; 
+    margin-right:auto;
+  }
+}
+
+@media screen and (min-width: 400px) { 
+  .filter-options select {
+    width: 44%;
+    margin: 0 10px 10px;
+  }
 }
