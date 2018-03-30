@@ -149,8 +149,9 @@ class DBHelper {
   /**
    * Restaurant image URL.
    */
-  static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+  static imageUrlForRestaurant(restaurant, w= "270", s="s") {
+    const idxDot = restaurant.photograph.indexOf(".");  //Find dot to split restaurant.photograph for different image sizes 
+    return (`/img/${restaurant.photograph.slice(0, idxDot)}-${w}_${s}${restaurant.photograph.slice(idxDot, restaurant.photograph.length)}`);
   }
 
   /**
