@@ -24,6 +24,10 @@ module.exports = function(grunt) {
             suffix: "_s",
             quality: 80
           },{
+            width: 540,
+            suffix: "_s_2x",
+            quality: 80
+          },{
             width: 300,
             suffix: "_m",
             quality: 50
@@ -33,7 +37,7 @@ module.exports = function(grunt) {
             quality: 80
           },{
             width: 370,
-            suffix: "_l_1x",
+            suffix: "_l",
             quality: 50
           },{
             width: 740,
