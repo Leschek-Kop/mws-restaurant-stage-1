@@ -55,10 +55,29 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
+  const restaurantDiv = document.getElementById('restaurant-div');
+  const picture = document.createElement('picture');
+  const sourceXtraLarge = document.createElement('source');
+  sourceXtraLarge.media = "(min-width: 900px)";
+  sourceXtraLarge.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w="540", s="s_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="270", s="s")} 1x`;
+  const sourceLarge = document.createElement('source');
+  sourceLarge.media = "(min-width: 400px)";
+  sourceLarge.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w="740", s="l_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="370", s="l")} 1x`;
+  const sourceMedium = document.createElement('source');
+  sourceMedium.media = "(min-width: 300px)";
+  sourceMedium.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w="600", s="m_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="300", s="m")} 1x`;
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
+  image.srcset = `${DBHelper.imageUrlForRestaurant(restaurant, w="540", s="s_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="270", s="s")} 1x`;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = `${restaurant.name}, a ${restaurant.cuisine_type} restaurant in ${restaurant.neighborhood}.`;
+  picture.append(sourceXtraLarge);
+  picture.append(sourceLarge);
+  picture.append(sourceMedium);
+  picture.append(image);
+  restaurantDiv.append(picture);
+  restaurantDiv.append(document.getElementById('restaurant-cuisine'));
+  restaurantDiv.append(document.getElementById('restaurant-address'));
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
