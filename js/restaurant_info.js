@@ -139,7 +139,7 @@ createReviewHTML = (review) => {
   const li = document.createElement('li');
 
   const head = document.createElement('div')
-  head.id = "reviews-list-head";
+  head.className = "head";
   
   const name = document.createElement('p');
   name.innerHTML = review.name;

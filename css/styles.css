@@ -301,7 +301,7 @@ nav h1 a {
   max-width: calc(364px - 20px - 20px);
   border-radius: 30px 5px 30px 5px;
 }
-#reviews-list-head {
+#reviews-list .head {
   position:absolute;
   top: 0;
   left: -1px;
@@ -312,12 +312,12 @@ nav h1 a {
   display: inline-block;
   vertical-align: top;
 }
-#reviews-list-head p{
+#reviews-list .head p{
   font-size: 14pt;
   font-weight: 500;
   color: #ddd;  
 }
-#reviews-list-head span{
+#reviews-list .head span{
   font-size: 12pt;
   color: #aaa;
   float:right;
