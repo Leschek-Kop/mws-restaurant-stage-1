@@ -97,6 +97,15 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   const hours = document.getElementById('restaurant-hours');
   for (let key in operatingHours) {
     const row = document.createElement('tr');
+    var att = document.createAttribute("role");
+    att.value = 'row';
+    row.setAttributeNode(att);
+    att = document.createAttribute("tabindex");
+    att.value = '0';
+    row.setAttributeNode(att);
+    att = document.createAttribute("aria-label");
+    att.value = `open on ${key}, ${operatingHours[key]}`;
+    row.setAttributeNode(att);
 
     const day = document.createElement('td');
     day.innerHTML = key;
