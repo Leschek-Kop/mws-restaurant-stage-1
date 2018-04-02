@@ -84,6 +84,14 @@ window.initMap = () => {
 }
 
 /**
+ * Add additional elements to HTML.
+ */
+window.onload = () => {
+  var iframeDocument = document.getElementsByTagName("iframe")[0];
+  iframeDocument.title = "Map content";  
+}
+
+/**
  * Update page and map for current restaurants.
  */
 updateRestaurants = () => {
