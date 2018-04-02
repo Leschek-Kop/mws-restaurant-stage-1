@@ -21,6 +21,14 @@ window.initMap = () => {
 }
 
 /**
+ * Add additional elements to HTML.
+ */
+window.onload = () => {
+  var iframeDocument = document.getElementsByTagName("iframe")[0];
+  iframeDocument.title = "Map content";  
+}
+
+/**
  * Get current restaurant from page URL.
  */
 fetchRestaurantFromURL = (callback) => {
@@ -199,4 +207,9 @@ getParameterByName = (name, url) => {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+
+changeFocus = () => {
+  document.getElementById('restaurant-name').focus();
 }

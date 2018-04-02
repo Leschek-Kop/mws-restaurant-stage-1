@@ -18,6 +18,8 @@
 
     </header>
 
+    <!-- skip-link -->
+    <a href="#filter-results" class="skip-link" onclick="changeFocus();">Skip to restaurant selection</a>
     <!-- main -->
     <main id="maincontent">
 
@@ -27,7 +29,7 @@
 
       <section>
         <div class="filter-options">
-          <h2>Filter Results</h2>
+          <h2 id="filter-results" tabindex="-1">Filter Results</h2>
           <select id="neighborhoods-select" aria-label="Choose the neighborhood you are looking for a restaurant" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>

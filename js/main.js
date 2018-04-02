@@ -195,3 +195,8 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
+
+
+changeFocus = () => {
+  document.querySelector('h2').focus();
+}
