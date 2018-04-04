@@ -25,7 +25,7 @@ window.initMap = () => {
  */
 window.onload = () => {
   var iframeDocument = document.getElementsByTagName("iframe")[0];
-  iframeDocument.title = "Map content";  
+  iframeDocument.title = "Map content";
 }
 
 /**
