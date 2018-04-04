@@ -154,6 +154,9 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  var att = document.createAttribute("aria-label");
+  att.value = `Restaurant review from ${review.name} written at ${review.date}.`;
+  li.setAttributeNode(att);
 
   const head = document.createElement('div')
   head.className = "head";

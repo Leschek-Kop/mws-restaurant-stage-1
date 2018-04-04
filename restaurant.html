@@ -16,7 +16,7 @@
           <h1><a href="/">Restaurant<br>Reviews</a></h1>
       </nav>
       <!-- skip-link -->
-    <a href="#restaurant" class="skip-link" onclick="changeFocus();">Skip to restaurant selection</a>
+    <a href="#restaurant" class="skip-link" onclick="changeFocus();">Skip to restaurant details</a>
 
       <ul id="breadcrumb" >
         <li><a href="/">Home</a></li>
@@ -35,8 +35,8 @@
         <h1 id="restaurant-name" tabindex="-1"></h1>
         <div id="restaurant-div" >
             <img id="restaurant-img" tabindex="0">
-            <p id="restaurant-cuisine"></p>
-            <p id="restaurant-address"></p>
+            <p id="restaurant-cuisine" aria-label="restaurant cuisine"></p>
+            <p id="restaurant-address" aria-label="restaurant adress"></p>
         </div>
         <table id="restaurant-hours" tabindex="0" role="table" aria-label="restaurant hours"></table>
       </section>
