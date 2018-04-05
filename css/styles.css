@@ -256,7 +256,7 @@ h2:focus{
 }
 #restaurant-address {
   font-size: 14pt;
-  margin: 15px 0px 20px;
+  margin: 10px 0;
 }
 #restaurant-cuisine {
   background-color: #333;
@@ -272,13 +272,13 @@ h2:focus{
   margin-left: auto;
   margin-right: auto;
   border-radius: 0 0 5px 30px;
-
 }
 #restaurant-div{
   position: relative;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 15px;
 }
 #restaurant-container, #reviews-container {
   position: relative;
@@ -286,7 +286,7 @@ h2:focus{
   background-color: #f3f3f3;
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 20px;
+  padding: 20px 5px 20px 5px;
 }
 #reviews-container {
   text-align: left;
@@ -410,34 +410,41 @@ h2:focus{
     flex-wrap: wrap;
   }
 }
-@media screen and (min-width: 704px) {
-  #restaurant-hours {
-    padding: 30px 0 0 15px;
-  }
-}
 @media screen and (min-width: 900px) {
   .inside #map-container{
-    width: 40%;
+    width: 35vw;
     float: right;
   }
   .inside #map{
-    height: 645px;
+    height: 810px;
   }
   #restaurant-img,
   #restaurant-cuisine{
-    max-width: 260px;
+    width: 35vw;
   }
   #restaurant-container{
-    width: calc(60% - 20px - 20px);
+    height: 770px;
   }
   #restaurant-hours {
     padding: 0 0 0 15px;
+    width: 70vw;
   }
 }
-@media screen and (min-width: 1098px) {
+@media screen and (min-width: 1079px) {
   .inside #map{
-    height: 390px;
-  } 
+    height: 450px;
+  }
+  #restaurant-container{
+    height: 410px;
+  }
+  #restaurant-img,
+  #restaurant-cuisine{
+    width: 25vw;
+  }
+  #restaurant-hours {
+    padding: 0 0 0 15px;
+    width: 30vw;
+  }
 }
 @media screen and (min-width: 1220px) { 
   #maincontent {
@@ -449,5 +456,20 @@ h2:focus{
     width: calc(1220px - 40px - 40px);
     margin-left:auto; 
     margin-right:auto;
+  }
+  #restaurant-img,
+  #restaurant-cuisine{
+    max-width: 305px;
+  }
+  #restaurant-div{
+    max-width: 335px;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .inside #map-container{
+    max-width: 426px;
+  }
+  #restaurant-hours {
+    max-width: 280px;
   }
 }
