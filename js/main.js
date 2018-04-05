@@ -10,6 +10,7 @@ var markers = []
 document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
+  startServiceWorker();
 });
 
 /**
@@ -89,7 +90,6 @@ window.initMap = () => {
 window.onload = () => {
   var iframeDocument = document.getElementsByTagName("iframe")[0];
   iframeDocument.title = "Map content";
-  startServiceWorker();
 }
 
 /**
@@ -206,15 +206,10 @@ startServiceWorker =() =>{
   if (!navigator.serviceWorker) return;
   var indexController = this;
   navigator.serviceWorker.register('/sw.js').then(function(reg) {
-    console.log('Registration worked!');
-    // if (!navigator.serviceWorker.controller) { 
-    //   console.log('Upps controller nix!');
-    //   return; 
-    // }
-    // console.log('ServiceWorker registration successful with scope: ', reg.scope);
+    if (!navigator.serviceWorker.controller) return;
+    console.log('ServiceWorker registration successful with scope: ', reg.scope);
   }).catch(function(){
     console.log('Registration failed');
-    
   }); 
 }
   
