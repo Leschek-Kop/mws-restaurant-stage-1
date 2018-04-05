@@ -88,7 +88,8 @@ window.initMap = () => {
  */
 window.onload = () => {
   var iframeDocument = document.getElementsByTagName("iframe")[0];
-  iframeDocument.title = "Map content";  
+  iframeDocument.title = "Map content";
+  startServiceWorker();
 }
 
 /**
@@ -200,3 +201,20 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 changeFocus = () => {
   document.querySelector('h2').focus();
 }
+
+startServiceWorker =() =>{
+  if (!navigator.serviceWorker) return;
+  var indexController = this;
+  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+    console.log('Registration worked!');
+    // if (!navigator.serviceWorker.controller) { 
+    //   console.log('Upps controller nix!');
+    //   return; 
+    // }
+    // console.log('ServiceWorker registration successful with scope: ', reg.scope);
+  }).catch(function(){
+    console.log('Registration failed');
+    
+  }); 
+}
+  
