@@ -6,7 +6,7 @@ const contentCache = 'restaurant-web-'+version;
 /**
 * Install Service Worker.
  */
-self.addEventListener('install', function(event){
+self.addEventListener('install', (event) => {
     const urlToCache = [
         '/',
         'sw.js',
@@ -17,7 +17,7 @@ self.addEventListener('install', function(event){
         'data/restaurants.json'
     ];
     event.waitUntil(
-        caches.open(staticCachName).then(function(cache){
+        caches.open(staticCachName).then((cache) => {
             return cache.addAll(urlToCache);
         })
     );
@@ -26,7 +26,7 @@ self.addEventListener('install', function(event){
 /**
 * fetch events.
  */
-self.addEventListener('fetch', function(event){
+self.addEventListener('fetch', (event) => {
     const requestUrl = new URL(event.request.url);
     if(requestUrl.origin === location.origin){
         if(requestUrl.pathname.startsWith('/img/')){
@@ -48,15 +48,15 @@ self.addEventListener('fetch', function(event){
 /**
 * handle restaurant-imgs cache.
  */
-function servePhoto(request) {
+servePhoto = (request)  => {
     const imgKey = '/img/';
     const posImg = request.url.indexOf(imgKey);
     const storageUrl = request.url.slice(0, posImg + imgKey.length + 1);
-    return caches.open(contentImgsCache).then(function(cache){
-        return cache.match(storageUrl).then(function(response){
+    return caches.open(contentImgsCache).then((cache) => {
+        return cache.match(storageUrl).then((response) => {
             if (response) return response;
 
-            return fetch(request).then(function(networkResponse){
+            return fetch(request).then((networkResponse) => {
                 cache.put(storageUrl, networkResponse.clone());
                 return networkResponse;
             });
@@ -67,13 +67,13 @@ function servePhoto(request) {
 /**
 * handle restaurant-web cache.
  */
-function serveContent(request) {
+serveContent = (request) => {
     const storageUrl = request.url;
-    return caches.open(contentCache).then(function(cache){
-        return cache.match(storageUrl).then(function(response){
+    return caches.open(contentCache).then((cache) => {
+        return cache.match(storageUrl).then((response) => {
             if (response) return response;
 
-            return fetch(request).then(function(networkResponse){
+            return fetch(request).then((networkResponse) => {
                 cache.put(storageUrl, networkResponse.clone());
                 return networkResponse;
             });
@@ -84,16 +84,16 @@ function serveContent(request) {
 /**
 * handle restaurant-local cache.
  */
-function serveSide(request) {
+serveSide = (request) => {
     var storageUrl = request.url;
     if(request.url.indexOf('?') != -1){
         storageUrl = storageUrl.slice(0, request.url.indexOf('?'));
     }
-    return caches.open(staticCachName).then(function(cache){
-        return cache.match(storageUrl).then(function(response){
+    return caches.open(staticCachName).then((cache) => {
+        return cache.match(storageUrl).then((response) => {
             if (response) return response;
 
-            return fetch(request).then(function(networkResponse){
+            return fetch(request).then((networkResponse) => {
                 cache.put(storageUrl, networkResponse.clone());
                 return networkResponse;
             });

@@ -89,8 +89,8 @@ window.initMap = () => {
  * a11y audit: iframe title
  */
 window.onload = () => {
-  var iframeDocument = document.getElementsByTagName("iframe")[0];
-  iframeDocument.title = "Map content";
+  var iframeDocument = document.getElementsByTagName('iframe')[0];
+  iframeDocument.title = 'Map content';
 }
 
 /**
@@ -150,13 +150,13 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.srcset = `${DBHelper.imageUrlForRestaurant(restaurant, w="540", s="s_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="270", s="s")} 1x`;
+  image.srcset = `${DBHelper.imageUrlForRestaurant(restaurant, w='540', s='s_2x')} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w='270', s='s')} 1x`;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = `${restaurant.name}, a ${restaurant.cuisine_type} restaurant in ${restaurant.neighborhood}.`;
   const picture = document.createElement('picture');
   const source = document.createElement('source');
-  source.media = "(min-width: 300px)";
-  source.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w="600", s="m_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="300", s="m")} 1x`;
+  source.media = '(min-width: 300px)';
+  source.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w='600', s='m_2x')} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w='300', s='m')} 1x`;
   picture.append(source);
   picture.append(image);
   li.append(picture);
@@ -176,12 +176,12 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  var att = document.createAttribute("aria-label");
+  var att = document.createAttribute('aria-label');
   att.value = `View details for ${restaurant.name}, a ${restaurant.cuisine_type} restaurant in ${restaurant.neighborhood}.`;
   more.setAttributeNode(att);
-  li.append(more)
+  li.append(more);
 
-  return li
+  return li;
 }
 
 /**
@@ -213,9 +213,7 @@ startServiceWorker =() =>{
   var indexController = this;
   navigator.serviceWorker.register('/sw.js').then(function(reg) {
     if (!navigator.serviceWorker.controller) return;
-    console.log('ServiceWorker registration successful with scope: ', reg.scope);
   }).catch(function(){
     console.log('Registration failed');
-  }); 
+  });
 }
-  

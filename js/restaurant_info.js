@@ -25,8 +25,8 @@ window.initMap = () => {
  * a11y audit: iframe title
  */
 window.onload = () => {
-  var iframeDocument = document.getElementsByTagName("iframe")[0];
-  iframeDocument.title = "Map content";
+  var iframeDocument = document.getElementsByTagName('iframe')[0];
+  iframeDocument.title = 'Map content';
 }
 
 /**
@@ -67,17 +67,17 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const restaurantDiv = document.getElementById('restaurant-div');
   const picture = document.createElement('picture');
   const sourceXtraLarge = document.createElement('source');
-  sourceXtraLarge.media = "(min-width: 900px)";
-  sourceXtraLarge.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w="540", s="s_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="270", s="s")} 1x`;
+  sourceXtraLarge.media = '(min-width: 900px)';
+  sourceXtraLarge.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w='540', s='s_2x')} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w='270', s='s')} 1x`;
   const sourceLarge = document.createElement('source');
-  sourceLarge.media = "(min-width: 400px)";
-  sourceLarge.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w="740", s="l_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="370", s="l")} 1x`;
+  sourceLarge.media = '(min-width: 400px)';
+  sourceLarge.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w='740', s='l_2x')} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w='370', s='l')} 1x`;
   const sourceMedium = document.createElement('source');
-  sourceMedium.media = "(min-width: 300px)";
-  sourceMedium.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w="600", s="m_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="300", s="m")} 1x`;
+  sourceMedium.media = '(min-width: 300px)';
+  sourceMedium.srcset=`${DBHelper.imageUrlForRestaurant(restaurant, w='600', s='m_2x')} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w='300', s='m')} 1x`;
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
-  image.srcset = `${DBHelper.imageUrlForRestaurant(restaurant, w="540", s="s_2x")} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w="270", s="s")} 1x`;
+  image.srcset = `${DBHelper.imageUrlForRestaurant(restaurant, w='540', s='s_2x')} 2x, ${DBHelper.imageUrlForRestaurant(restaurant, w='270', s='s')} 1x`;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = `${restaurant.name}, a ${restaurant.cuisine_type} restaurant in ${restaurant.neighborhood}.`;
   picture.append(sourceXtraLarge);
@@ -106,13 +106,13 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   const hours = document.getElementById('restaurant-hours');
   for (let key in operatingHours) {
     const row = document.createElement('tr');
-    var att = document.createAttribute("role");
+    var att = document.createAttribute('role');
     att.value = 'row';
     row.setAttributeNode(att);
-    att = document.createAttribute("tabindex");
+    att = document.createAttribute('tabindex');
     att.value = '0';
     row.setAttributeNode(att);
-    att = document.createAttribute("aria-label");
+    att = document.createAttribute('aria-label');
     att.value = `open on ${key}, ${operatingHours[key]}`;
     row.setAttributeNode(att);
 
@@ -157,13 +157,13 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  var att = document.createAttribute("aria-label");
+  var att = document.createAttribute('aria-label');
   att.value = `Restaurant review from ${review.name} written at ${review.date}.`;
   li.setAttributeNode(att);
   li.setAttribute('tabindex', '0');
 
   const head = document.createElement('div')
-  head.className = "head";
+  head.className = 'head';
   
   const name = document.createElement('p');
   name.innerHTML = review.name;
@@ -175,7 +175,7 @@ createReviewHTML = (review) => {
   li.appendChild(head);
 
   const rating = document.createElement('span');
-  rating.className = "rating";
+  rating.className = 'rating';
   rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
 
