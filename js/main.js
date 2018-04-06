@@ -86,6 +86,7 @@ window.initMap = () => {
 
 /**
  * Add additional elements to HTML.
+ * a11y audit: iframe title
  */
 window.onload = () => {
   var iframeDocument = document.getElementsByTagName("iframe")[0];
@@ -197,11 +198,16 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 }
 
-
+/**
+ * set focus to new element.
+ */
 changeFocus = () => {
   document.querySelector('h2').focus();
 }
 
+/**
+ * register Service Worker.
+ */
 startServiceWorker =() =>{
   if (!navigator.serviceWorker) return;
   var indexController = this;

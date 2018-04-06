@@ -1,12 +1,11 @@
 const version = 'v1';
-const staticCachName = 'restaurant-'+version;
+const staticCachName = 'restaurant-local'+version;
 const contentImgsCache = 'restaurant-imgs-'+version;
-const contentCache = 'restaurant-content-'+version;
-const allCaches = [
-    staticCachName,
-    contentImgsCache
-];
+const contentCache = 'restaurant-web-'+version;
 
+/**
+* Install Service Worker.
+ */
 self.addEventListener('install', function(event){
     const urlToCache = [
         '/',
@@ -24,8 +23,9 @@ self.addEventListener('install', function(event){
     );
 });
 
-// TODO: New URL to cache!!!
-
+/**
+* fetch events.
+ */
 self.addEventListener('fetch', function(event){
     const requestUrl = new URL(event.request.url);
     if(requestUrl.origin === location.origin){
@@ -34,22 +34,20 @@ self.addEventListener('fetch', function(event){
             return;
         }
     }
-    console.log('indexOf:' , event.request.url.indexOf('https://'));
     if (event.request.url.indexOf('https://') == 0) {
-        console.log('Google: ', event.request.url);
         event.respondWith(
-            // Handle Maps API requests in a generic fashion,
-            // by returning a Promise that resolves to a Response.
             serveContent(event.request)
         );
     } else {
-        console.log('Local: ', event.request.url);
         event.respondWith(
             serveSide(event.request)
         );
     }
 });
 
+/**
+* handle restaurant-imgs cache.
+ */
 function servePhoto(request) {
     const imgKey = '/img/';
     const posImg = request.url.indexOf(imgKey);
@@ -66,6 +64,9 @@ function servePhoto(request) {
     });
 }
 
+/**
+* handle restaurant-web cache.
+ */
 function serveContent(request) {
     const storageUrl = request.url;
     return caches.open(contentCache).then(function(cache){
@@ -80,6 +81,9 @@ function serveContent(request) {
     });
 }
 
+/**
+* handle restaurant-local cache.
+ */
 function serveSide(request) {
     var storageUrl = request.url;
     if(request.url.indexOf('?') != -1){

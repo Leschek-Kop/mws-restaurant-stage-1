@@ -22,6 +22,7 @@ window.initMap = () => {
 
 /**
  * Add additional elements to HTML.
+ * a11y audit: iframe title
  */
 window.onload = () => {
   var iframeDocument = document.getElementsByTagName("iframe")[0];
@@ -166,13 +167,9 @@ createReviewHTML = (review) => {
   
   const name = document.createElement('p');
   name.innerHTML = review.name;
-  //li.appendChild(name);
-  //head.appendChild(name);
 
   const date = document.createElement('span');
   date.innerHTML = review.date;
-  //li.appendChild(date);
-  //head.appendChild(date);
   name.appendChild(date);
   head.appendChild(name);
   li.appendChild(head);
@@ -216,7 +213,9 @@ getParameterByName = (name, url) => {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-
+/**
+ * set focus to new element.
+ */
 changeFocus = () => {
   document.getElementById('restaurant-name').focus();
 }
