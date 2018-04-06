@@ -81,7 +81,10 @@ function serveContent(request) {
 }
 
 function serveSide(request) {
-    const storageUrl = request.url;
+    var storageUrl = request.url;
+    if(request.url.indexOf('?') != -1){
+        storageUrl = storageUrl.slice(0, request.url.indexOf('?'));
+    }
     return caches.open(staticCachName).then(function(cache){
         return cache.match(storageUrl).then(function(response){
             if (response) return response;
